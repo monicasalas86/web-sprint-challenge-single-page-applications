@@ -1,5 +1,6 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect} from "react"
 import axios from 'axios'
+import {BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 
 import Form from './components/PizzaForm'
 import schema from './components/FormSchema'
@@ -73,16 +74,26 @@ const App = () => {
   }, [formValues])
 
   return (
-    <div>
-      <h1>Lambda Eats</h1>
-      <Form
-        values={formValues}
-        change={inputChange}
-        submit={formSubmit}
-        disabled={disabled}
-        errors={formErrors}
-      />
-    </div>
+    <Router>
+      <div>
+        <header>
+          <h1>Lambda Eats</h1>
+          <Link to='/'>Home</Link>
+          <Link to="/pizza" id='order-pizza'>Order Pizza</Link>
+        </header>
+        <Switch>
+          <Route render={() => <Form
+              values={formValues}
+              change={inputChange}
+              submit={formSubmit}
+              disabled={disabled}
+              errors={formErrors}
+            />}>
+            
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   )
 };
 export default App;
