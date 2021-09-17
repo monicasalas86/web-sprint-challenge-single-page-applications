@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from "react"
 import axios from 'axios'
-import {BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import Form from './components/PizzaForm'
 import schema from './components/FormSchema'
 import * as yup from 'yup'
-
+import Home from './components/Home'
 
 const initialFormValues = {
   name: '',
@@ -76,11 +76,7 @@ const App = () => {
   return (
     <Router>
       <div>
-        <header>
-          <h1>Lambda Eats</h1>
-          <Link to='/'>Home</Link>
-          <Link to="/pizza" id='order-pizza'>Order Pizza</Link>
-        </header>
+        <Home path='/pizza'/>
         <Switch>
           <Route render={() => <Form
               values={formValues}
