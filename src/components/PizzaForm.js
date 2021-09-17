@@ -93,7 +93,7 @@ export default function PizzaForm(props) {
                             <label>Mushrooms
                                 <input
                                     type='checkbox'
-                                    name='Mushrooms'
+                                    name='mushroom'
                                     checked={values.Mushrooms}
                                     onChange={onChange}
                                 />
@@ -101,7 +101,7 @@ export default function PizzaForm(props) {
                             <label>Green Peppers
                                 <input
                                     type='checkbox'
-                                    name='peppers'
+                                    name='pepper'
                                     checked={values.peppers}
                                     onChange={onChange}
                                 />
@@ -120,7 +120,7 @@ export default function PizzaForm(props) {
                     </label>
                 </div>
                 <div className='submit'>
-                    <button id='order-button'>Submit Order</button>
+                    <button id='order-button' disabled={disabled}>Submit Order</button>
                 </div>
             </form>
         </div>
